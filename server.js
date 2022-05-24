@@ -1,7 +1,8 @@
-const Sequelize = require('sequelize')
 const express = require('express')
 const app = express()
 const db = require("./database/db")
+const cors = require('cors')
+
 const userModel = require("./database/models/user")
 const addressModel = require("./database/models/address") 
 
