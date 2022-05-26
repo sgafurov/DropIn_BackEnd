@@ -9,31 +9,31 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/users', async (req, res) => {
-    try {
-        const users = await User.findAll()
-        res.status(200).send(users)
-    } catch (error) {
-        res.send(error.message)
-    }
-})
+// router.get('/users', async (req, res) => {
+//     try {
+//         const users = await User.findAll()
+//         res.status(200).send(users)
+//     } catch (error) {
+//         res.send(error.message)
+//     }
+// })
 
-router.get('/:username', async (req, res) => {
-    console.log('inside get username route', req.params)
-    try {
-        const userInfo = await User.findByPk(req.params.username)
-        if (!userInfo) {
-            throw { status: 400, message: 'This user does not exist.' }
-        }
-        res.status(200).json(userInfo)
-    } catch (error) {
-        if (error.status == 400) {
-            res.status(400).json(error)
-        } else {
-            res.status(500).json(error)
-        }
-    }
-})
+// router.get('/:username', async (req, res) => {
+//     console.log('inside get username route', req.params)
+//     try {
+//         const userInfo = await User.findByPk(req.params.username)
+//         if (!userInfo) {
+//             throw { status: 400, message: 'This user does not exist.' }
+//         }
+//         res.status(200).json(userInfo)
+//     } catch (error) {
+//         if (error.status == 400) {
+//             res.status(400).json(error)
+//         } else {
+//             res.status(500).json(error)
+//         }
+//     }
+// })
 
 router.post('/login', async (req, res) => {
     console.log('inside login route ', req.body)
