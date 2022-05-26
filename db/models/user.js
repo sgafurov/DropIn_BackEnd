@@ -30,6 +30,6 @@ const User = db.define('user', {
         //     len: [8, 20]
         // }
     }
-}, { db, createdAt: false, updatedAt: false })
+}, { db, createdAt: false, updatedAt: false, freezeTableName: true })
 
 module.exports = User
