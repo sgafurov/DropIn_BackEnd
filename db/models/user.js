@@ -7,6 +7,14 @@ const User = db.define('user', {
     //     autoIncrement: true,
     //     primaryKey: true,
     // },
+    firstname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    lastname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
     username: {
         type: Sequelize.STRING,
         primaryKey: true,
@@ -22,14 +30,6 @@ const User = db.define('user', {
         validate: {
             len: [8, 20]
         }
-    },
-    first_name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    last_name: {
-        type: Sequelize.STRING,
-        allowNull: false,
     }
 }, { db, createdAt: false, updatedAt: false })
 
