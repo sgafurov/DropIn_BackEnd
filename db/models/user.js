@@ -19,17 +19,16 @@ const User = db.define('user', {
         type: Sequelize.STRING,
         primaryKey: true,
         allowNull: false,
-        unique: true,
-        validate: {
-            len: [5, 12]
-        }
+        // validate: {
+        //     len: [5, 12]
+        // }
     },
     password: {
         type: Sequelize.TEXT,
         allowNull: false,
-        validate: {
-            len: [8, 20]
-        }
+        // validate: {
+        //     len: [8, 20]
+        // }
     }
 }, { db, createdAt: false, updatedAt: false })
 
