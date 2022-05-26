@@ -1,4 +1,3 @@
-const pkg = require('../../package.json')
 require('dotenv').config()
 
 const Sequelize = require('sequelize');
