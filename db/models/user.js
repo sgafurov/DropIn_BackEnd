@@ -1,27 +1,27 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-//define the database table name along with the table columns and types
-const User = db.define('users', {
-    user_id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-    },
+const User = db.define('user', {
+    // user_id: {
+    //     type: Sequelize.INTEGER,
+    //     autoIncrement: true,
+    //     primaryKey: true,
+    // },
     username: {
         type: Sequelize.STRING,
+        primaryKey: true,
         allowNull: false,
         unique: true,
         validate: {
             len: [5, 12]
-          }
+        }
     },
     password: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
         validate: {
             len: [8, 20]
-          }
+        }
     },
     first_name: {
         type: Sequelize.STRING,
@@ -31,8 +31,6 @@ const User = db.define('users', {
         type: Sequelize.STRING,
         allowNull: false,
     }
-}, {
-    tableName: "user"
-})
+}, { db, createdAt: false, updatedAt: false })
 
 module.exports = User
