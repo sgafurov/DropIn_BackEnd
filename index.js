@@ -16,13 +16,6 @@ app.use(bodyParser.json())
 
 app.use('/', require('./api/user'))
 
-app.get('/', (req, res) => {
-  //the request is trying to access '/' on localhost
-  //the response is printing 'hello' on the webpage
-  console.log('im on /')
-  res.status().send('hello')
-})
-
 // const start = async() =>{
 //     try {
 //         await db.authenticate();
