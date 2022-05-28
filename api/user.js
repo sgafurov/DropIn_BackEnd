@@ -79,9 +79,6 @@ router.post('/register', async (req, res) => {
 })
 
 // router.put('/updateUserInfo', async (req, res) => {
-//     res.set('Access-Control-Allow-Origin', '*');
-//     res.send({ "msg": "This has CORS enabled 🎈" })
-
 //     try {
 //         const updatedUserInfo = await User.update(req.body, {
 //             where: { username: req.body.username },

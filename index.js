@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/', require('./api/user'))
+app.use('/', require('./api/review'))
+app.use('/', require('./api/building'))
 
 // const start = async() =>{
 //     try {
