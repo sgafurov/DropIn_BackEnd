@@ -7,5 +7,7 @@ const Building = require('./models/building')
 
 module.exports = {
     db,
-    User
+    User,
+    Review,
+    Building
 }
