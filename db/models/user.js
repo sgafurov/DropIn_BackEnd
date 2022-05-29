@@ -33,12 +33,12 @@ const User = db.define('users', {
     favorites: {
         type: Sequelize.STRING,
         allowNull: true,
-        get() {
-            return this.getDataValue('favorites').split(';')
-        },
-        set(val) {
-           this.setDataValue('favorites',val.join(';'));
-        },
+        // get() {
+        //     return this.getDataValue('favorites').split(';')
+        // },
+        // set(val) {
+        //    this.setDataValue('favorites',val.join(';'));
+        // },
     }
 }, { db, createdAt: false, updatedAt: false })
 
