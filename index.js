@@ -34,6 +34,7 @@ app.use('/', require('./api/building'))
 //       }
 // }
 // start();
+
 db.sync().then(() => {
   console.log('db synced')
   app.listen(PORT, () =>

@@ -7,7 +7,7 @@ const Review = db.define('reviews', {
         primaryKey: true
     },
     building_id: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING, //used to be TEXT
         allowNull: false
     },
     username: {

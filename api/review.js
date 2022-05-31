@@ -12,11 +12,26 @@ router.get('/reviews', async (req, res) => {
 })
 
 //Get user specific reviews
-router.post('/reviews', async (req, res) => {
+router.post('/my-reviews', async (req, res) => {
     try {
         const reviews = await Review.findAll({
             where: {
                 username: req.body.username
+            }
+        })
+        res.status(200).send(reviews)
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
+//Get building specific revieews.
+router.post('/building-reviews', async (req, res) => {
+    console.log('req building id is', req.body.building_id)
+    try {
+        const reviews = await Review.findAll({
+            where: {
+                building_id: req.body.building_id
             }
         })
         res.status(200).send(reviews)
