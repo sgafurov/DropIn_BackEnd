@@ -23,7 +23,7 @@ const Review = db.define('reviews', {
         allowNull: false
     },
     timestamp: {
-        type: Sequelize.TEXT,
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 }, { db, createdAt: false, updatedAt: false })
