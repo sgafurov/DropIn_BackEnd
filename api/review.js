@@ -48,17 +48,17 @@ router.post('/review', async (req, res) => {
         }
         if (!req.body.review_id) {
             res.status(400)
-            throw { status: 400, message: 'No review id provided' }
-        }
-        if (!req.body.username) {
-            res.status(400)
-            throw { status: 400, message: 'Please specify who is leaving the review' }
+            throw { status: 400, message: 'No review id has been generated. Try again' }
         }
         if (!req.body.comment_body) {
             res.status(400)
             throw { status: 400, message: 'No text provided in comment body' }
         }
-        if (!req.body.star_rating) {
+        if (!req.body.username) {
+            res.status(400)
+            throw { status: 400, message: 'Please specify who is leaving the review' }
+        }
+        if (!req.body.star_rating || req.body.star_rating === 0) {
             res.status(400)
             throw { status: 400, message: 'No star rating provided' }
         }
