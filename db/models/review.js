@@ -10,6 +10,10 @@ const Review = db.define('reviews', {
         type: Sequelize.STRING, //used to be TEXT
         allowNull: false
     },
+    address: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     username: {
         type: Sequelize.STRING,
         allowNull: false
