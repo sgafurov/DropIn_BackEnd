@@ -4,23 +4,27 @@ const db = require('../db')
 const Review = db.define('reviews', {
     review_id: {
         type: Sequelize.TEXT,
-        primaryKey: true,
+        primaryKey: true
     },
     building_id: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: false
     },
     username: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
     },
     comment_body: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
     },
     star_rating: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
+    },
+    timestamp: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
 }, { db, createdAt: false, updatedAt: false })
 
