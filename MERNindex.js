@@ -14,11 +14,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.get("/", (req, res) => {
-  res.send("API is running!");
-});
-//use express middleware to connect this to our application
-app.use("/users", userRoutes); //every route in the userRoutes will start with /users
 
 const PORT = process.env.PORT || 5000;
 const uri = process.env.ATLAS_URI;
@@ -30,6 +25,12 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB connection established successfully");
 });
+
+app.get("/", (req, res) => {
+  res.send("API is running!");
+});
+//use express middleware to connect this to our application
+app.use("/users", userRoutes); //every route in the userRoutes will start with /users
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
