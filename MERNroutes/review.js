@@ -6,6 +6,6 @@ import {postReview, getReviews} from "../MERNcontrollers/review.js"
 const router = express.Router()
 
 router.post('/postReview', postReview)
-router.get('/getReviews', getReviews)
+router.post('/getReviews', getReviews)
 
 export default router
