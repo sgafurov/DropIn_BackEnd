@@ -25,7 +25,6 @@ export const login = async (req, res) => {
   console.log("inside login route ", req.body);
   try {
     const userInfo = await User.findOne({ username: req.body.username });
-    console.count() // show us where our code gets to
     if (!userInfo) {
       res.status(400);
       throw { status: 400, message: "This user does not exist." };
@@ -34,7 +33,6 @@ export const login = async (req, res) => {
       res.status(400);
       throw { status: 400, message: "The password does not match." };
     }
-    console.count() // show us where our code gets to
     res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {

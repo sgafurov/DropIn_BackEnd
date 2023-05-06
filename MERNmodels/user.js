@@ -30,6 +30,7 @@ const userSchema = mongoose.Schema({
     // zip: String,
     type: String,
     required: true,
+    ref: 'Building'
   },
   user_type: {
     type: String,
