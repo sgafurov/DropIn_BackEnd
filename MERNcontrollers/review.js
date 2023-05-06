@@ -30,3 +30,17 @@ export const getReviews = async (req, res) => {
     }
   }
 };
+
+export const getUserReviews = async (req, res) => {
+  console.log("inside getReviews route ", req.body);
+  try {
+    const reviews = await Review.find({ username: req.body.username });
+    res.status(200).json(reviews);
+  } catch (error) {
+    if (res.statusCode == 400) {
+      res.status(400).json(error); //error objects are composed of status codes and messages
+    } else {
+      res.status(500).json(error);
+    }
+  }
+};
