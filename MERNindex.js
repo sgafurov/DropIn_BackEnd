@@ -5,6 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 import userRoutes from "./MERNroutes/user.js";
+import reviewRoutes from "./MERNroutes/review.js"
 
 const app = express();
 
@@ -30,7 +31,9 @@ app.get("/", (req, res) => {
   res.send("API is running!");
 });
 //use express middleware to connect this to our application
-app.use("/users", userRoutes); //every route in the userRoutes will start with /users
+app.use("/user", userRoutes); //every route in the userRoutes will start with /users
+app.use("/review", reviewRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
