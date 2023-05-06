@@ -20,7 +20,7 @@ export const postReview = async (req, res) => {
 export const getReviews = async (req, res) => {
   console.log("inside getReviews route ", req.body);
   try {
-    const reviews = await Review.find({ username: req.body.address });
+    const reviews = await Review.find({ address: req.body.address });
     res.status(200).json(reviews);
   } catch (error) {
     if (res.statusCode == 400) {
