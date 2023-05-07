@@ -38,7 +38,7 @@ export const getUserReviews = async (req, res) => {
     res.status(200).json(reviews);
   } catch (error) {
     if (res.statusCode == 400) {
-      res.status(400).json(error); //error objects are composed of status codes and messages
+      res.status(400).json(error); 
     } else {
       res.status(500).json(error);
     }

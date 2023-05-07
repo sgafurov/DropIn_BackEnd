@@ -7,7 +7,7 @@ export const register = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username }); //find the user where the username in the DB is req.body.username
     if (user) {
-      throw { status: 400, message: "This user already exists." };
+      throw { status: 400, message: "An account with this username already exists." };
     }
     const newUser = await User.create(req.body);
     res.status(200).json(newUser);
@@ -36,7 +36,8 @@ export const login = async (req, res) => {
     res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {
-      res.status(400).json(error); //error objects are composed of status codes and messages
+      res.status(400).json(error); 
+      // res.status(400).send(error.message);
     } else {
       res.status(500).json(error);
     }
