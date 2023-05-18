@@ -43,3 +43,24 @@ export const login = async (req, res) => {
     }
   }
 };
+
+
+//NEWWWW
+export const getUserInfo = async (req, res) => {
+  console.log("inside getUserInfo route ", req.body);
+  try {
+    const userInfo = await User.findOne({ username: req.body.username });
+    if (!userInfo) {
+      res.status(400);
+      throw { status: 400, message: "This user does not exist." };
+    }
+    res.status(200).json(userInfo);
+  } catch (error) {
+    if (res.statusCode == 400) {
+      res.status(400).json(error); 
+      // res.status(400).send(error.message);
+    } else {
+      res.status(500).json(error);
+    }
+  }
+};
