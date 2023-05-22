@@ -1,6 +1,7 @@
 // controller has all the handlers/logic for our routes
 
 import User from "../MERNmodels/user.js";
+import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   console.log("inside register route", req.body);
@@ -33,6 +34,9 @@ export const login = async (req, res) => {
       res.status(400);
       throw { status: 400, message: "The password does not match." };
     }
+    // create web token
+    var token = jwt.sign({ userInfo }, process.env.JWT_SECRET);
+    userInfo.token = token // add as a property to object im sending back to browser
     res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {
