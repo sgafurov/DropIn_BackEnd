@@ -3,6 +3,10 @@
 import Review from "../MERNmodels/review.js";
 
 export const postReview = async (req, res) => {
+  if (!req.user) {
+    res.status(403).json({"message" : "You need to be logged in"})
+    return
+  }
   console.log("inside postReview route", req.body);
   try {
     const newReview = await Review.create(req.body);
