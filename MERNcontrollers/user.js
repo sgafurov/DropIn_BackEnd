@@ -8,7 +8,10 @@ export const register = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username }); //find the user where the username in the DB is req.body.username
     if (user) {
-      throw { status: 400, message: "An account with this username already exists." };
+      throw {
+        status: 400,
+        message: "An account with this username already exists.",
+      };
     }
     const newUser = await User.create(req.body);
     res.status(200).json(newUser);
@@ -26,7 +29,7 @@ export const login = async (req, res) => {
   console.log("inside login route ", req.body);
   try {
     const userInfo = await User.findOne({ username: req.body.username });
-    console.log("userInfo: ", userInfo)
+    console.log("userInfo: ", userInfo);
     if (!userInfo) {
       res.status(400);
       throw { status: 400, message: "This user does not exist." };
@@ -37,23 +40,24 @@ export const login = async (req, res) => {
     }
     // create web token
     const token = jwt.sign(userInfo, process.env.JWT_SECRET);
-    console.log("token", token)
+    console.log("token", token);
 
     // userInfo.token = token // add as a property to object im sending back to browser
-    userInfo = { ...userInfo, token };
     // res.status(200).json({userInfo, token});
 
-    res.status(200).json(userInfo);
+    const userWithToken = { ...userInfo, token };
+    res.status(200).json(userWithToken);
+
+    // res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {
-      res.status(400).json(error); 
+      res.status(400).json(error);
       // res.status(400).send(error.message);
     } else {
       res.status(500).json(error);
     }
   }
 };
-
 
 //NEWWWW
 export const getUserInfo = async (req, res) => {
@@ -67,7 +71,7 @@ export const getUserInfo = async (req, res) => {
     res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {
-      res.status(400).json(error); 
+      res.status(400).json(error);
       // res.status(400).send(error.message);
     } else {
       res.status(500).json(error);
