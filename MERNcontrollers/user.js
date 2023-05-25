@@ -26,6 +26,7 @@ export const login = async (req, res) => {
   console.log("inside login route ", req.body);
   try {
     const userInfo = await User.findOne({ username: req.body.username });
+    console.log("userInfo: ", userInfo)
     if (!userInfo) {
       res.status(400);
       throw { status: 400, message: "This user does not exist." };
