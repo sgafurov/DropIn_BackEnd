@@ -36,7 +36,7 @@ export const login = async (req, res) => {
       throw { status: 400, message: "The password does not match." };
     }
     // create web token
-    var token = jwt.sign(userInfo, process.env.JWT_SECRET);
+    const token = jwt.sign(userInfo, process.env.JWT_SECRET);
     console.log("token", token)
 
     // userInfo.token = token // add as a property to object im sending back to browser
