@@ -46,6 +46,7 @@ export const login = async (req, res) => {
     // res.status(200).json({userInfo, token});
 
     const userWithToken = { ...userInfo, token };
+    console.log("userWithToken: ", userWithToken);
     res.status(200).json(userWithToken);
 
     // res.status(200).json(userInfo);
