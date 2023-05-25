@@ -37,7 +37,7 @@ export const login = async (req, res) => {
     // create web token
     var token = jwt.sign(userInfo, process.env.JWT_SECRET);
     console.log("token", token)
-    userInfo.token = token // add as a property to object im sending back to browser
+    // userInfo.token = token // add as a property to object im sending back to browser
     res.status(200).json({userInfo, token});
   } catch (error) {
     if (res.statusCode == 400) {
