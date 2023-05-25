@@ -30,6 +30,7 @@ export const login = async (req, res) => {
   try {
     const userInfo = await User.findOne({ username: req.body.username });
     console.log("userInfo: ", userInfo);
+
     if (!userInfo) {
       res.status(400);
       throw { status: 400, message: "This user does not exist." };
@@ -39,7 +40,7 @@ export const login = async (req, res) => {
       throw { status: 400, message: "The password does not match." };
     }
     // create web token
-    const token = jwt.sign(userInfo, process.env.JWT_SECRET);
+    const token = jwt.sign(userInfo, "brooklyn");
     console.log("token", token);
 
     // userInfo.token = token // add as a property to object im sending back to browser

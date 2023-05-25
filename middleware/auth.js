@@ -6,7 +6,7 @@ export const authRequired = (req, res, next) => {
   if (!token) {
     req.user = null; // no token and no user logged in
   } else {
-    var decoded = jwt.verify(token, process.env.JWT_SECRET);
+    var decoded = jwt.verify(token, "brooklyn");
     if (decoded) {
       // if token is correct
       req.user = decoded;
