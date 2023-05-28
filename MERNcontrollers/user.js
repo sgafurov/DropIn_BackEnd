@@ -40,21 +40,22 @@ export const login = async (req, res) => {
       throw { status: 400, message: "The password does not match." };
     }
     // create web token
-    // const token = jwt.sign(userInfo, "brooklyn");
+    const token = jwt.sign(userInfo, process.env.JWT_SECRET);
     // console.log("token", token);
 
-    // userInfo.token = token // add as a property to object im sending back to browser
+    userInfo.token = token; // add as a property to object im sending back to browser
     // res.status(200).json({userInfo, token});
     // const userWithToken = { ...userInfo, token };
     // console.log("userWithToken: ", userWithToken);
     // res.status(200).json(userWithToken);
 
-     res.status(200).json(userInfo);
+    res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {
       res.status(400).json(error);
     } else {
       res.status(500).json(error);
+      console.log(error);
     }
   }
 };
