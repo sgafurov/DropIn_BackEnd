@@ -41,7 +41,7 @@ export const login = async (req, res) => {
     }
     // create web token
     // const token = jwt.sign(userInfo, "brooklyn");
-    console.log("token", token);
+    // console.log("token", token);
 
     // userInfo.token = token // add as a property to object im sending back to browser
     // res.status(200).json({userInfo, token});
@@ -53,7 +53,6 @@ export const login = async (req, res) => {
   } catch (error) {
     if (res.statusCode == 400) {
       res.status(400).json(error);
-      // res.status(400).send(error.message);
     } else {
       res.status(500).json(error);
     }
@@ -73,7 +72,6 @@ export const getUserInfo = async (req, res) => {
   } catch (error) {
     if (res.statusCode == 400) {
       res.status(400).json(error);
-      // res.status(400).send(error.message);
     } else {
       res.status(500).json(error);
     }
