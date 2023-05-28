@@ -45,12 +45,11 @@ export const login = async (req, res) => {
 
     // userInfo.token = token // add as a property to object im sending back to browser
     // res.status(200).json({userInfo, token});
+    // const userWithToken = { ...userInfo, token };
+    // console.log("userWithToken: ", userWithToken);
+    // res.status(200).json(userWithToken);
 
-    const userWithToken = { ...userInfo, token };
-    console.log("userWithToken: ", userWithToken);
-    res.status(200).json(userWithToken);
-
-    // res.status(200).json(userInfo);
+     res.status(200).json(userInfo);
   } catch (error) {
     if (res.statusCode == 400) {
       res.status(400).json(error);
