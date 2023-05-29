@@ -21,7 +21,7 @@ export const postReview = async (req, res) => {
   }
 };
 
-export const getReviews = async (req, res) => {
+export const getReviews = async (req, res) => { // gets reviews for a building
   console.log("inside getReviews route ", req.body);
   try {
     const reviews = await Review.find({ address: req.body.address });
@@ -38,7 +38,7 @@ export const getReviews = async (req, res) => {
 export const getUserReviews = async (req, res) => {
   console.log("inside getReviews route ", req.body);
   try {
-    const reviews = await Review.find({ username: req.body.username });
+    const reviews = await Review.find({ _id: req.body._id });
     res.status(200).json(reviews);
   } catch (error) {
     if (res.statusCode == 400) {
