@@ -14,7 +14,6 @@ const app = express();
 // must be put at very top of index.js
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.json()); 
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
